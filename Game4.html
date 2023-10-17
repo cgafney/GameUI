@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>What's that Video Game?</title>
+    <link rel="icon" href="images/favicon.png">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+<script>
+
+//    ANTI-CHEAT LOGIC
+
+const pageAccessedByReload = (
+  (window.performance.navigation && window.performance.navigation.type === 1) ||
+    window.performance
+      .getEntriesByType('navigation')
+      .map((nav) => nav.type)
+      .includes('reload')
+);
+let CurrentGame = sessionStorage.getItem("CurrentGame");
+
+/*    PRELOAD IMAGES
+  
+preload_image("https://raw.githubusercontent.com/cgafney/GameUI/main/images/ApexLegends/GamePoster.jpg");
+preload_image("https://raw.githubusercontent.com/cgafney/GameUI/main/images/ApexLegends/Screen1.jpg");
+preload_image("https://raw.githubusercontent.com/cgafney/GameUI/main/images/ApexLegends/Screen2.jpg");
+preload_image("https://raw.githubusercontent.com/cgafney/GameUI/main/images/ApexLegends/Screen3.jpg");
+preload_image("https://raw.githubusercontent.com/cgafney/GameUI/main/images/ApexLegends/Screen3.jpg");
+function preload_image(im_url){
+  let img = new Image();
+  img.src = im_url;
+}*/
+</script>
+  </head>
+  <body>
+
+<!-- ROUNDS LEFT -->
+
+    <div class="center">
+      <p style="display:inline-block">Round</p>
+      <output style="display:inline-block" id="RoundNumber"></output>
+      <p style="display:inline-block"> / </p>
+      <output style="display:inline-block" id="TotalRounds"></output>
+    </div>
+
+<!-- FIRST IMAGE -->
+
+    <div id="ApexLegends1" class="First-Image">
+      <img src="images/ApexLegends/Screen1.jpg" alt="Game Test Screen1" style="display:block; width:1080px">
+      <div class="numbertext">1 / 1</div>
+      <br>
+      <div style="text-align:center">
+        <span class="dot"></span>
+      </div>
+    </div>
+
+<!-- SECOND IMAGE / SLIDE SHOW 1 -->
+
+    <div id="ApexLegends2" style="display:none;">
+      <div class="slideshow-container">
+        <div class="mySlides1">
+          <div class="numbertext">1 / 2</div>
+          <img src="images/ApexLegends/Screen1.jpg" alt="Game Test Screen1" style="width:1080px">
+        </div>
+
+        <div class="mySlides1">
+          <div class="numbertext">2 / 2</div>
+          <img src="images/ApexLegends/Screen2.jpg" alt="Game Test Screen2" style="width:1080px">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,0)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,0)">&#10095;</a>
+      </div>
+      <br>
+      <div style="text-align:center">
+        <span class="dot1" onclick="currentSlide(1,0,1)"></span>
+        <span class="dot1" onclick="currentSlide(1,0,2)"></span>
+      </div>
+    </div>
+
+<!-- THIRD IMAGE / SLIDE SHOW 2 -->
+
+    <div id="ApexLegends3" style="display:none;">
+      <div class="slideshow-container">
+        <div class="mySlides2">
+          <div class="numbertext">1 / 3</div>
+          <img src="images/ApexLegends/Screen1.jpg" alt="Game Screen 1" style="width:1080px">
+        </div>
+        <div class="mySlides2">
+          <div class="numbertext">2 / 3</div>
+          <img src="images/ApexLegends/Screen2.jpg" alt="Game Screen 2" style="width:1080px">
+        </div>
+        <div class="mySlides2">
+          <div class="numbertext">3 / 3</div>
+          <img src="images/ApexLegends/Screen3.jpg" alt="Game Screen 3" style="width:1080px">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,1)">&#10095;</a>
+      </div>
+      <br>
+      <div style="text-align:center">
+        <span class="dot2" onclick="currentSlide(1,1,1)"></span>
+        <span class="dot2" onclick="currentSlide(1,1,2)"></span>
+        <span class="dot2" onclick="currentSlide(1,1,3)"></span>
+      </div>
+    </div>
+
+<!-- FOURTH IMAGE / SLIDE SHOW 3 -->
+
+    <div id="ApexLegends4" style="display:none;">
+      <div class="slideshow-container">
+        <div class="mySlides3">
+          <div class="numbertext">1 / 4</div>
+          <img src="images/ApexLegends/Screen1.jpg" alt="Game Screen 1" style="width:1080px">
+        </div>
+
+        <div class="mySlides3">
+          <div class="numbertext">2 / 4</div>
+          <img src="images/ApexLegends/Screen2.jpg" alt="Game Screen 2" style="width:1080px">
+        </div>
+
+        <div class="mySlides3">
+          <div class="numbertext">3 / 4</div>
+          <img src="images/ApexLegends/Screen3.jpg" alt="Game Screen 3" style="width:1080px">
+        </div>
+
+        <div class="mySlides3">
+          <div class="numbertext">4 / 4</div>
+          <img src="images/ApexLegends/Screen4.jpg" alt="Game Screen 4" style="width:1080px">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,2)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,2)">&#10095;</a>
+      </div>
+      <br>
+      <div style="text-align:center">
+        <span class="dot3" onclick="currentSlide(1,2,1)"></span>
+        <span class="dot3" onclick="currentSlide(1,2,2)"></span>
+        <span class="dot3" onclick="currentSlide(1,2,3)"></span>
+        <span class="dot3" onclick="currentSlide(1,2,4)"></span>
+      </div>
+    </div>
+
+<!-- FIFTH IMAGE / SLIDE SHOW 4 -->
+
+    <div id="ApexLegendsMain" style="display:none;">
+      <div class="slideshow-container">
+        <div class="mySlides4">
+          <div class="numbertext">1 / 5</div>
+          <img src="images/ApexLegends/Screen1.jpg" alt="Game Screen 1" style="width:1080px">
+        </div>
+        <div class="mySlides4">
+          <div class="numbertext">2 / 5</div>
+          <img src="images/ApexLegends/Screen2.jpg" alt="Game Screen 2" style="width:1080px">
+        </div>
+        <div class="mySlides4">
+          <div class="numbertext">3 / 5</div>
+          <img src="images/ApexLegends/Screen3.jpg" alt="Game Screen 3" style="width:1080px">
+        </div>
+        <div class="mySlides4">
+          <div class="numbertext">4 / 5</div>
+          <img src="images/ApexLegends/Screen4.jpg" alt="Game Screen 4" style="width:1080px">
+        </div>
+        <div class="mySlides4">
+          <div class="numbertextfinal">5 / 5</div>
+          <img src="images/ApexLegends/GamePoster.jpg" alt="Apex Legends" style="width:1080px">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,3)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,3)">&#10095;</a>
+      </div>
+      <br>
+      <div style="text-align:center">
+        <span class="dot4" onclick="currentSlide(1,3,1)"></span>
+        <span class="dot4" onclick="currentSlide(1,3,2)"></span>
+        <span class="dot4" onclick="currentSlide(1,3,3)"></span>
+        <span class="dot4" onclick="currentSlide(1,3,4)"></span>
+        <span class="dot4" onclick="currentSlide(1,3,5)"></span>
+      </div>
+    </div><br>
+
+<!-- ANSWER FORM RETURNS -->
+
+      <h2 id="InputSomething" style="display:none; text-align:center; margin:0em;"> Input Something! </h2>
+      <h1 id="CorrectAnswer" style="display:none; text-align:center; margin:0em;">Correct Answer!</h1>
+      <h1 id="IncorrectAnswer" style="display:none; text-align:center; margin:0em;">Incorrect Answer!</h1>
+      <h1 id="Skipped" style="display:none; text-align:center; margin:0em;">Skipped!</h1>
+
+<!-- GUESSES -->
+
+    <div class="flex">
+    <div class="flexed-small">
+    <output class="guess" id="guess1" style="display:none"></output>
+    <output class="guess" id="guess2" style="display:none"></output>
+    <output class="guess" id="guess3" style="display:none"></output>
+    <output class="guess" id="guess4" style="display:none"></output>
+    </div>
+
+<!-- ANSWER FORMS -->
+
+    <div class="center flexed">
+      <p id="InputSomething" style="display:none;"> Input Something! </p>
+      <h1 id="IncorrectAnswer" style="display:none;">Incorrect Answer!</h1>
+      <form id="ApexLegendsForm1" onsubmit="ApexLegends1();return false">
+        <input type="text" autocomplete="off" maxlength="25" id="ApexLegends1Answer" placeholder="What's the Video Game?" style="display:inline-block"></input>
+        <button type="submit" id="ApexLegendsSubmit1" style="display:inline-block;"> Submit! </button>
+        <button type="submit" class="skip" onclick="Skip1=true;"style="display:inline-block;"> Skip! </button>
+        <div><ul class="search" id="ApexLegends1Search"></ul></div>
+      </form>
+      <form id="ApexLegendsForm2" onsubmit="ApexLegends2();return false">
+        <input type="text" autocomplete="off" maxlength="25" id="ApexLegends2Answer" placeholder="What's the Video Game?" style="display:none"></input>
+        <button type="submit" id="ApexLegendsSubmit2" style="display:none;"> Submit! </button>
+        <button type="submit" id="ApexLegendsSkip2" class="skip" onclick="Skip2=true;"style="display:none;"> Skip! </button>
+        <div id="ApexLegends2Display" style="display:none;"><ul class="search" id="ApexLegends2Search"></ul></div>
+      </form>
+      <form id="ApexLegendsForm3" onsubmit="ApexLegends3();return false">
+        <input type="text" autocomplete="off" maxlength="25" id="ApexLegends3Answer" placeholder="What's the Video Game?" style="display:none"></input>
+        <button type="submit" id="ApexLegendsSubmit3" style="display:none;"> Submit! </button>
+        <button type="submit" id="ApexLegendsSkip3" class="skip" onclick="Skip3=true;"style="display:none;"> Skip! </button>
+        <div id="ApexLegends3Display" style="display:none;"><ul class="search" id="ApexLegends3Search"></ul></div>
+      </form>
+      <form id="ApexLegendsForm4" onsubmit="ApexLegends4();return false">
+        <input type="text" autocomplete="off" maxlength="25" id="ApexLegends4Answer" placeholder="What's the Video Game?" style="display:none"></input>
+        <button type="submit" id="ApexLegendsSubmit4" style="display:none;"> Submit! </button>
+        <button type="submit" id="ApexLegendsSkip4" class="skip" onclick="Skip4=true;"style="display:none;"> Skip! </button>
+        <div id="ApexLegends4Display" style="display:none;"><ul class="search" id="ApexLegends4Search"></ul></div>
+      </form>
+    
+
+<!-- SECTION FINISH -->
+
+    <div class="center padding">
+      <button class="center" type="button" onclick="ApexLegendsEnd()" id="ApexLegendsEnd" style="display:none;"> Next Game! </button>
+      <p id="BeforeScore" style="display:none;">Points Gained - </p>
+      <output id="Score" style="display:none;"></output><br>
+      <h2 id="BeforeTotalScore" style="display:none;">Total Score - </h2>
+      <output id="TotalScore" class="h2" style="display:none;"></output>
+    </div>
+    </div><div class="flexed-small"></div>
+    </div>
+<script>
+
+//    MISC
+
+const CorrectAnswer="Apex Legends";
+let searchResults, ran;
+if(!ran){
+  searchResults = document.getElementById("ApexLegends1Search");
+  ran = true
+}
+let RoundNumber = document.getElementById("RoundNumber")
+RoundNumber.value = sessionStorage.getItem("GamesDone")
+let RoundTotal = document.getElementById("TotalRounds")
+RoundTotal.value = sessionStorage.getItem("TotalRounds")
+
+
+//    SLIDE FUNCTIONALITY
+
+let slideIndex = [2,3,4,5];
+let slideId = ["mySlides1", "mySlides2","mySlides3","mySlides4"]
+let dotId = ["dot1", "dot2","dot3","dot4"]
+function plusSlides(n, no) {
+  showSlides(slideIndex[no] += n, no);
+}
+function currentSlide(n, no, non){
+  showSlides(n, no,slideIndex[no]=non)
+}
+function showSlides(n, no, non) {
+  let i;
+  let x = document.getElementsByClassName(slideId[no]);
+  if (n > x.length) {slideIndex[no] = 1}
+  if (n < 1) {slideIndex[no] = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex[no]-1].style.display = "block";
+
+  let dots = document.getElementsByClassName(dotId[no]);
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  dots[slideIndex[no]-1].className += " active";
+} 
+
+//    SKIP
+
+let Skip1,Skip2,Skip3,Skip4;
+
+//    SECTION GAME FUNCTIONALITY
+
+function ApexLegends1(){
+  Score=0;
+  TotalScore=0;
+  TestAnswer = document.getElementById("ApexLegends1Answer").value;
+  searchResults = document.getElementById("ApexLegends2Search");
+  if(!Skip1){
+  if(TestAnswer == ""){
+    document.getElementById("InputSomething").style.display = "block";
+    document.getElementById("IncorrectAnswer").style.display="none";
+  }else{
+  Answer = document.getElementById("ApexLegends1Answer")
+  Answer.value="";
+  document.getElementById("ApexLegendsForm1").style.display="none";
+  let guess = document.getElementById("guess1");
+  guess.style.display="block";
+  guess.value=TestAnswer;
+  if(TestAnswer.toLowerCase() !== CorrectAnswer.toLowerCase()){
+    guess.style.color="red";
+    document.getElementById("ApexLegends2").style.display = "block";
+    showSlides(1,0);
+    document.getElementById("InputSomething").style.display = "none";
+    document.getElementById("IncorrectAnswer").style.display="block";
+    document.getElementById("ApexLegends1").style.display="none";
+    Answer = document.getElementById("ApexLegends2Answer");
+    Answer.value="";
+    Answer.style.display = "inline-block";
+    document.getElementById("ApexLegendsSkip2").style.display="inline-block";
+    document.getElementById("ApexLegendsSubmit2").style.display="inline-block";
+    document.getElementById("ApexLegends2Display").style.display="block";
+  }else{
+    guess.style.color="green";
+    document.getElementById("IncorrectAnswer").style.display="none";
+    document.getElementById("Skipped").style.display="none";
+    document.getElementById("CorrectAnswer").style.display = "block";
+    Score =+ 4;
+    TotalScore=sessionStorage.getItem("GameScore");
+    if(!pageAccessedByReload&&CurrentGame=="Apex Legends"){
+    TotalScore = Number(TotalScore) + Number(Score);
+    sessionStorage.setItem("GameScore",TotalScore);}
+    ApexLegendsAnswer();
+  }}}else{
+    document.getElementById("ApexLegendsForm1").style.display="none";
+    let guess = document.getElementById("guess1");
+    guess.style.display="block";
+    guess.value="Skipped!";
+    guess.style.color="red";
+    document.getElementById("ApexLegends2").style.display = "block";
+    showSlides(1,0);
+    document.getElementById("InputSomething").style.display = "none";
+    document.getElementById("IncorrectAnswer").style.display="none";
+    document.getElementById("Skipped").style.display="block";
+    document.getElementById("ApexLegends1").style.display="none";
+    Answer = document.getElementById("ApexLegends2Answer");
+    Answer.value="";
+    Answer.style.display = "inline-block";
+    document.getElementById("ApexLegendsSkip2").style.display="inline-block";
+    document.getElementById("ApexLegendsSubmit2").style.display="inline-block";
+    document.getElementById("ApexLegends2Display").style.display="block";
+  }
+}
+function ApexLegends2(){
+  let TestAnswer = document.getElementById("ApexLegends2Answer").value;
+  searchResults = document.getElementById("ApexLegends3Search");
+  if(!Skip2){
+  if(TestAnswer == ""){
+    document.getElementById("InputSomething").style.display = "block";
+    document.getElementById("IncorrectAnswer").style.display="none";
+    document.getElementById("Skipped").style.display="none";
+  }else{
+  document.getElementById("ApexLegendsForm2").style.display="none";
+  Answer.value="";
+  let guess = document.getElementById("guess2");
+  guess.style.display="block";
+  guess.value=TestAnswer;
+  if(TestAnswer.toLowerCase() !== CorrectAnswer.toLowerCase()){
+    guess.style.color="red";
+    document.getElementById("ApexLegends3").style.display = "block";
+    showSlides(1,1);
+    document.getElementById("InputSomething").style.display = "none";
+    document.getElementById("Skipped").style.display="none";
+    document.getElementById("IncorrectAnswer").style.display="block"
+    document.getElementById("ApexLegends2").style.display="none";
+    Answer = document.getElementById("ApexLegends3Answer");
+    Answer.value="";
+    Answer.style.display = "inline-block";
+    document.getElementById("ApexLegendsSkip3").style.display="inline-block";
+    document.getElementById("ApexLegendsSubmit3").style.display="inline-block";
+    document.getElementById("ApexLegends3Display").style.display="block";
+  }else{
+    guess.style.color="green";
+    document.getElementById("IncorrectAnswer").style.display="none";
+    document.getElementById("Skipped").style.display="none";
+    document.getElementById("CorrectAnswer").style.display = "block";
+    Score =+ 3;
+    TotalScore=sessionStorage.getItem("GameScore");
+    if(!pageAccessedByReload&&CurrentGame=="Apex Legends"){
+    TotalScore = Number(TotalScore) + Number(Score);
+    sessionStorage.setItem("GameScore",TotalScore);}
+    ApexLegendsAnswer();
+  }}}else{
+    document.getElementById("ApexLegendsForm2").style.display="none";
+    let guess = document.getElementById("guess2");
+    guess.style.display="block";
+    guess.value="Skipped!";
+    guess.style.color="red";
+    document.getElementById("ApexLegends3").style.display = "block";
+    showSlides(1,1);
+    document.getElementById("InputSomething").style.display = "none";
+    document.getElementById("IncorrectAnswer").style.display="none";
+    document.getElementById("Skipped").style.display="block";
+    document.getElementById("ApexLegends2").style.display="none";
+    Answer = document.getElementById("ApexLegends3Answer");
+    Answer.value="";
+    Answer.style.display = "inline-block";
+    document.getElementById("ApexLegendsSkip3").style.display="inline-block";
+    document.getElementById("ApexLegendsSubmit3").style.display="inline-block";
+    document.getElementById("ApexLegends3Display").style.display="block";
+  }
+}
+function ApexLegends3(){
+  let TestAnswer = document.getElementById("ApexLegends3Answer").value;
+  searchResults = document.getElementById("ApexLegends4Search");
+  if(!Skip3){
+  if(TestAnswer == ""){
+    document.getElementById("InputSomething").style.display = "block";
+    document.getElementById("Skipped").style.display="none";
+    document.getElementById("IncorrectAnswer").style.display="none";
+  }else{
+  document.getElementById("ApexLegendsForm3").style.display="none";
+  Answer.value="";
+  let guess = document.getElementById("guess3");
+  guess.style.display="block";
+  guess.value=TestAnswer;
+  if(TestAnswer.toLowerCase() !== CorrectAnswer.toLowerCase()){
+    guess.style.color="red";
+    document.getElementById("ApexLegends4").style.display = "block";
+    showSlides(1,2);
+    document.getElementById("InputSomething").style.display = "none";
+    document.getElementById("Skipped").style.display="none";
+    document.getElementById("IncorrectAnswer").style.display="block"
+    document.getElementById("ApexLegends3").style.display="none";
+    Answer = document.getElementById("ApexLegends4Answer");
+    Answer.value="";
+    Answer.style.display = "inline-block";
+    document.getElementById("ApexLegendsSkip4").style.display="inline-block";
+    document.getElementById("ApexLegendsSubmit4").style.display="inline-block";
+    document.getElementById("ApexLegends4Display").style.display="block";
+  }else{
+    guess.style.color="green";
+    document.getElementById("IncorrectAnswer").style.display="none";
+    document.getElementById("Skipped").style.display="none";
+    document.getElementById("CorrectAnswer").style.display = "block";
+    Score =+ 2;
+    TotalScore=sessionStorage.getItem("GameScore");
+    if(!pageAccessedByReload&&CurrentGame=="Apex Legends"){
+    TotalScore = Number(TotalScore) + Number(Score);
+    sessionStorage.setItem("GameScore",TotalScore);}
+    ApexLegendsAnswer();
+  }}}else{
+    document.getElementById("ApexLegendsForm3").style.display="none";
+    let guess = document.getElementById("guess3");
+    guess.style.display="block";
+    guess.value="Skipped!";
+    guess.style.color="red";
+    document.getElementById("ApexLegends4").style.display = "block";
+    showSlides(1,2);
+    document.getElementById("InputSomething").style.display = "none";
+    document.getElementById("IncorrectAnswer").style.display="none";
+    document.getElementById("Skipped").style.display="block";
+    document.getElementById("ApexLegends3").style.display="none";
+    Answer = document.getElementById("ApexLegends4Answer");
+    Answer.value="";
+    Answer.style.display = "inline-block";
+    document.getElementById("ApexLegendsSkip4").style.display="inline-block";
+    document.getElementById("ApexLegendsSubmit4").style.display="inline-block";
+    document.getElementById("ApexLegends4Display").style.display="block";
+  }
+}
+function ApexLegends4(){
+  let TestAnswer = document.getElementById("ApexLegends4Answer").value;
+  if(!Skip4){
+  if(TestAnswer == ""){
+    document.getElementById("InputSomething").style.display = "block";
+    document.getElementById("Skipped").style.display="none";
+    document.getElementById("IncorrectAnswer").style.display="none";
+  }else{
+  document.getElementById("ApexLegendsForm4").style.display="none";
+  Answer.value="";
+  let guess = document.getElementById("guess4");
+  guess.style.display="block";
+  guess.value=TestAnswer;
+  if(TestAnswer.toLowerCase() !== CorrectAnswer.toLowerCase()){
+    guess.style.color="red";
+    document.getElementById("Skipped").style.display="none";
+    document.getElementById("InputSomething").style.display = "none";
+    document.getElementById("IncorrectAnswer").style.display="block";
+  }else{
+    guess.style.color="green";
+    document.getElementById("IncorrectAnswer").style.display="none";
+    document.getElementById("Skipped").style.display="none";
+    document.getElementById("CorrectAnswer").style.display = "block";
+    Score =+ 1;
+    TotalScore=sessionStorage.getItem("GameScore");
+    if(!pageAccessedByReload&&CurrentGame=="Apex Legends"){
+    TotalScore = Number(TotalScore) + Number(Score);
+    sessionStorage.setItem("GameScore",TotalScore);}
+  }
+  ApexLegendsAnswer();
+  }}else{
+  document.getElementById("ApexLegendsForm4").style.display="none";
+  document.getElementById("InputSomething").style.display = "none";
+  document.getElementById("IncorrectAnswer").style.display="none";
+  document.getElementById("Skipped").style.display="block";
+  let guess = document.getElementById("guess4");
+  guess.style.display="block";
+  guess.value="Skipped!";
+  guess.style.color="red";
+  ApexLegendsAnswer();
+}}
+function ApexLegendsAnswer(){
+  sessionStorage.setItem("CurrentGame",0);
+  document.getElementById("ApexLegendsMain").style.display = "block";
+  showSlides(1,3);
+  document.getElementById("ApexLegends1").style.display = "none";
+  document.getElementById("ApexLegends2").style.display = "none";
+  document.getElementById("ApexLegends3").style.display = "none";
+  document.getElementById("ApexLegends4").style.display = "none";
+  document.getElementById("ApexLegendsEnd").style.display = "block";
+  document.getElementById("Score").value = Score;
+  document.getElementById("TotalScore").value = TotalScore;
+  document.getElementById("BeforeScore").style.display="inline-block";
+  document.getElementById("Score").style.display="inline-block";
+  document.getElementById("BeforeTotalScore").style.display="inline-block";
+  document.getElementById("TotalScore").style.display="inline-block";
+  document.getElementById("InputSomething").style.display = "none";
+  Answer.style.display = "none";
+}
+function ApexLegendsEnd(){
+  document.getElementById("CorrectAnswer").style.display = "none";
+  document.getElementById("IncorrectAnswer").style.display="none";
+  document.getElementById("ApexLegendsMain").style.display = "none";
+  document.getElementById("ApexLegendsEnd").style.display = "none";
+  document.getElementById("BeforeTotalScore").style.display="none";
+  document.getElementById("TotalScore").style.display="none";
+  document.getElementById("BeforeScore").style.display="none";
+  document.getElementById("Score").style.display="none";
+  GameMain();
+}
+
+//    SUGGEST CODE
+
+let searchInput1 = document.getElementById("ApexLegends1Answer");
+let searchInput2 = document.getElementById("ApexLegends2Answer");
+let searchInput3 = document.getElementById("ApexLegends3Answer");
+let searchInput4 = document.getElementById("ApexLegends4Answer");
+let searchData = JSON.parse(sessionStorage.getItem("Suggest"));
+function filterResults(query) {
+  return searchData.filter(item => item.toLowerCase().includes(query.toLowerCase()));
+}
+function displayResults1(results) {
+  searchResults.innerHTML = '';
+  results.forEach(result => {
+    let li = document.createElement('li');
+    li.textContent = result;
+    li.addEventListener('click', () => {
+      searchInput1.value = result;
+      searchResults.innerHTML = '';
+    });
+  searchResults.appendChild(li);
+  }); 
+}
+function displayResults2(results) {
+  searchResults.innerHTML = '';
+  results.forEach(result => {
+    let li = document.createElement('li');
+    li.textContent = result;
+    li.addEventListener('click', () => {
+      searchInput2.value = result;
+      searchResults.innerHTML = '';
+    });
+  searchResults.appendChild(li);
+  }); 
+}
+function displayResults3(results) {
+  searchResults.innerHTML = '';
+  results.forEach(result => {
+    let li = document.createElement('li');
+    li.textContent = result;
+    li.addEventListener('click', () => {
+      searchInput3.value = result;
+      searchResults.innerHTML = '';
+    });
+  searchResults.appendChild(li);
+  }); 
+}
+function displayResults4(results) {
+  searchResults.innerHTML = '';
+  results.forEach(result => {
+    let li = document.createElement('li');
+    li.textContent = result;
+    li.addEventListener('click', () => {
+      searchInput4.value = result;
+      searchResults.innerHTML = '';
+    });
+  searchResults.appendChild(li);
+  }); 
+}
+searchInput1.addEventListener('input', () => {
+  let query = searchInput1.value;
+  if (query === '') {
+    searchResults.innerHTML = '';
+  } else {
+    let results = filterResults(query);
+    displayResults1(results);
+  } 
+});
+searchInput2.addEventListener('input', () => {
+  let query = searchInput2.value;
+  if (query === '') {
+    searchResults.innerHTML = '';
+  } else {
+    let results = filterResults(query);
+    displayResults2(results);
+  } 
+});
+searchInput3.addEventListener('input', () => {
+  let query = searchInput3.value;
+  if (query === '') {
+    searchResults.innerHTML = '';
+  } else {
+    let results = filterResults(query);
+    displayResults3(results);
+  } 
+});
+searchInput4.addEventListener('input', () => {
+  let query = searchInput4.value;
+  if (query === '') {
+    searchResults.innerHTML = '';
+  } else {
+    let results = filterResults(query);
+    displayResults4(results);
+  } 
+});
+document.addEventListener('click', (event) => {
+  let isClickInsideInput = event.target === searchInput1;
+  let isClickInsideResults = searchResults.contains(event.target);
+  if (!isClickInsideInput && !isClickInsideResults) {
+    searchResults.innerHTML = '';
+  } 
+});
+document.addEventListener('click', (event) => {
+  let isClickInsideInput = event.target === searchInput2;
+  let isClickInsideResults = searchResults.contains(event.target);
+  if (!isClickInsideInput && !isClickInsideResults) {
+    searchResults.innerHTML = '';
+  } 
+});
+document.addEventListener('click', (event) => {
+  let isClickInsideInput = event.target === searchInput3;
+  let isClickInsideResults = searchResults.contains(event.target);
+  if (!isClickInsideInput && !isClickInsideResults) {
+    searchResults.innerHTML = '';
+  } 
+});
+document.addEventListener('click', (event) => {
+  let isClickInsideInput = event.target === searchInput4;
+  let isClickInsideResults = searchResults.contains(event.target);
+  if (!isClickInsideInput && !isClickInsideResults) {
+    searchResults.innerHTML = '';
+  } 
+});
+</script>
+  </body>
+</html>

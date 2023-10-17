@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>What's that Video Game?</title>
+    <link rel="icon" href="images/favicon.png">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+<!-- DESCRIPTION -->
+    <h1 class="center">What's That Video Game?</h1>
+
+
+<!-- GAME FORM -->
+
+    <form onSubmit="GameSort(); return false" id="GameSort">
+      <div><input onchange="SelectAll();" name="Select All" type="checkbox" id="Select All"><label class="bold" for="Select All">Select All Genres and Platforms</label></div>
+      <fieldset>
+        <legend class="list h3">Type of Genre</legend>
+        <div class="select"><input onchange="AllGenres();SelectCheck();" name="All Genre" class="All" type="checkbox" id="All Genres"><label class="bold"for="All Genres">Select All Genres</label></div>
+        <div class="grid">
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Action"><label for="Action">Action Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Adventure"><label for="Adventure">Adventure Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Battle Royale"><label for="Battle Royale">Battle Royale Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Beat"><label for="Beat">Beat Em' Up</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Casual"><label for="Casual">Casual Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Fighting"><label for="Fighting">Fighting Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="FPS"><label for="FPS">First Person Shooters</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Horror"><label for="Horror">Horror Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Management"><label for="Management">Management Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Metroidvania"><label for="Metroidvania">Metroidvania</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="MOBA"><label for="MOBA">MOBA</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="MMO"><label for="MMO">MMO</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Multiplayer"><label for="Multiplayer">Multiplayer Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Open World"><label for="Open World">Open World Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Party"><label for="Party">Party Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Platformer"><label for="Platformer">Platformer Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Puzzle"><label for="Puzzle">Puzzle Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Racing"><label for="Racing">Racing Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Rhythm"><label for="Rhythm">Rhythm Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Rougelike"><label for="Rougelike">Rouge-like</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="RPG"><label for="RPG">Role Playing Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="RTS"><label for="RTS">Real Time Strategy</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Sandbox"><label for="Sandbox">Sandbox Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Simulation"><label for="Simulation">Simulation</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Shooter"><label for="Shooter">Shooter Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Sports"><label for="Sports">Sport Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Strategy"><label for="Strategy">Strategy Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Stealth"><label for="Stealth">Stealth Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Survival"><label for="Survival">Survival Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Visual Novels"><label for="Visual Novel">Visual Novel Games</label></div>
+          <div><input onchange="GenreCheck();" name="Genre" type="checkbox" id="Other"><label for="Other">Other Games</label></div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend class="list h3">Type of Platform</legend>
+        <div class="select"><input onchange="AllPlatforms();SelectCheck();" class="All" name="All Platforms" type="checkbox" id="All Platforms"><label class="bold"for="All Platforms">Select All Platforms</label></div>
+        <div class="grid">
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="PC Games"> <label for="PC Games">PC Games</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="Arcade"><label for="Arcade">Arcade</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="Atari"><label for="Atari">Atari</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="SNES"><label for="SNES">Super Nintendo ES</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="Nintendo GameCube"><label for="Nintendo GameCube">Nintendo GameCube</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="Nintendo DS"><label for="Nintendo DS">Nintendo DS</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="Nintendo Wii"><label for="Nintendo Wii">Nintendo Wii</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="Nintendo Switch"><label for="Nintendo Switch">Nintendo Switch</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="Playstation 3"><label for="Playstation 3">Playstation 3</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="Playstation 4"><label for="Playstation 4">Playstation 4</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="Playstation 5"><label for="Playstation 5">Playstation 5</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="XBox"><label for="XBox">X-Box</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="XBox360"><label for="XBox360">X-Box 360</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="XBox1"><label for="XBox1">X-Box One</label></div>
+          <div><input onchange="PlaformsCheck();" name="Platform" type="checkbox" id="XBoxXS"><label for="XBoxXS">X-Box Series X/S</label></div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend class="list h3">Number of Rounds to Play</legend>
+        <div class="grid">
+          <div><input type="radio" id="#ofTimes5" name="#ofTimes"><label for="#ofTimes5">5 Rounds</label></div>
+          <div><input type="radio" id="#ofTimes10" name="#ofTimes" checked><label for="#ofTimes10">10 Rounds</label></div>
+          <div><input type="radio" id="#ofTimes15" name="#ofTimes"><label for="#ofTimes15">15 Rounds</label></div>
+          <div><input type="radio" id="#ofTimes20" name="#ofTimes"><label for="#ofTimes20">20 Rounds</label></div>
+          <div><input type="radio" id="#ofTimes25" name="#ofTimes"><label for="#ofTimes25">25 Rounds</label></div>
+        </div>
+      </fieldset><br>
+      <div class="center"><button type="submit" id="GameSortButton">Start the Game!</button></div>
+      <h1 id="GameStartError" class="center" style="display:none;">No Games Found</h1>
+    </form>
+
+<!-- MISC -->
+
+    <div>
+      <p id="BeforeScore" style="display:none;">Score - </p>
+      <output id="GameScore" style="display:none;"></output>
+    </div>
+
+<!-- GAME END -->
+
+    <div class="center">
+      <h1 id="GameEnd" style="display:none;">Game Finished!</h1>
+      <div class="pushup">
+        <h2 id="BeforeFinalScore" style="display:none;">Final Score - </h2>
+        <output class="h2" id="FinalScore" style="display:none;"></output>
+      </div>
+    </div>
+<script>
+
+//    CHECKMARK FUNCTIONALITY
+
+function AllGenres(){
+  let Check = document.getElementsByName("Genre");
+  if(document.getElementById("All Genres").checked){
+    for (let i=0;i<Check.length;i++){
+      Check[i].checked = true;
+  }}else{
+    for (let i=0;i<Check.length;i++){
+      Check[i].checked = false;
+  }}
+}
+function GenreCheck(){
+  let Check = document.getElementsByName("Genre");
+  if (Check.length > document.querySelectorAll('input[name="Genre"]:checked').length){
+    document.getElementById("All Genres").checked = false;
+  }else{document.getElementById("All Genres").checked = true;}
+}
+function AllPlatforms(){
+  let Check = document.getElementsByName("Platform");
+  if(document.getElementById("All Platforms").checked){
+    for (let i=0;i<Check.length;i++){
+      Check[i].checked = true;
+  }}else{
+    for (let i=0;i<Check.length;i++){
+      Check[i].checked = false;
+  }}
+}
+function PlaformsCheck(){
+  let Check = document.getElementsByName("Platform");
+  if (Check.length > document.querySelectorAll('input[name="Platform"]:checked').length){
+    document.getElementById("All Platforms").checked = false;
+  }else{document.getElementById("All Platforms").checked = true;}
+}
+function SelectAll(){
+  let Check = document.getElementsByClassName("All");
+  if(document.getElementById("Select All").checked){
+    for (let i=0;i<Check.length;i++){
+      Check[i].checked = true;
+      AllPlatforms();
+      AllGenres();
+  }}else{
+    for (let i=0;i<Check.length;i++){
+      Check[i].checked = false;
+      AllPlatforms();
+      AllGenres();
+  }}
+}
+function SelectCheck(){
+  let Check = document.getElementsByClassName("All");
+  if (Check.length > document.querySelectorAll('input[class="All"]:checked').length){
+    document.getElementById("Select All").checked = false;
+  }else{document.getElementById("Select All").checked = true;}
+}
+
+//    GAME SORTING
+
+function GameSort(){
+  let GenreCheckPass = document.querySelectorAll('input[name="Genre"]:checked')
+  let PlatformCheckPass = document.querySelectorAll('input[name="Platform"]:checked')
+  if(GenreCheckPass.length+PlatformCheckPass.length==0){
+    document.getElementById("GameStartError").style.display="block";
+  }else{
+  let ofTimes=0;
+  if(document.getElementById("#ofTimes5").checked){
+    ofTimes=5
+    sessionStorage.setItem("TotalRounds",5);
+  }if(document.getElementById("#ofTimes10").checked){
+    ofTimes=10
+    sessionStorage.setItem("TotalRounds",10);
+  }if(document.getElementById("#ofTimes15").checked){
+    ofTimes=15
+    sessionStorage.setItem("TotalRounds",15);
+  }if(document.getElementById("#ofTimes20").checked){
+    ofTimes=20
+    sessionStorage.setItem("TotalRounds",20);
+  }if(document.getElementById("#ofTimes25").checked){
+    ofTimes=25
+    sessionStorage.setItem("TotalRounds",25);
+  }if(ofTimes==0){
+    document.getElementById("GameStartError").style.display="block"
+  }else{
+  document.getElementById("GameEnd").style.display="none";
+  document.getElementById("BeforeFinalScore").style.display="none";
+  document.getElementById("FinalScore").style.display="none";
+  sessionStorage.setItem("TotalGamesDoing",ofTimes);
+  sessionStorage.setItem("GamesDone",0);
+  sessionStorage.setItem("GameScore",0);
+  PlatformPass=[];
+  GenrePass=[];
+  let GenreCheck = document.getElementsByName("Genre");
+  for(i=0;i<GenreCheck.length;i++){
+    if(GenreCheck[i].checked){
+      GenrePass[i]=Genre[i];
+    }
+  }
+  FlattenGenre(GenrePass);
+  let PlatformCheck = document.getElementsByName("Platform");
+  for(i=0;i<PlatformCheck.length;i++){
+    if(PlatformCheck[i].checked){
+      PlatformPass[i]=Platform[i];
+    }
+  }
+  FlattenPlatform(PlatformPass);
+  FlattenAll();
+}}}
+function FlattenGenre(Arr){
+  let CombinedArray=[];
+  for(i=0;i<Arr.length;i++){
+    CombinedArray = CombinedArray.concat(Arr[i]);
+  }
+  let CleanCombinedArray = removeDuplicates(CombinedArray);
+  let index = CleanCombinedArray.indexOf(undefined);
+  if (index > -1){
+    CleanCombinedArray.splice(index,1)
+  }
+  GenreComplete=CleanCombinedArray
+}
+function FlattenPlatform(Arr){
+  let CombinedArray=[];
+  for(i=0;i<Arr.length;i++){
+    CombinedArray = CombinedArray.concat(Arr[i]);
+  }
+  let CleanCombinedArray = removeDuplicates(CombinedArray);
+  let index = CleanCombinedArray.indexOf(undefined);
+  if (index > -1){
+    CleanCombinedArray.splice(index,1)
+  }
+  PlatformComplete=CleanCombinedArray
+}
+function FlattenAll(){
+  let BlankArray=[],CombinedArray,CleanCombinedArray;
+  if(PlatformComplete.length>0&&GenreComplete.length>0){
+    CombinedArray=BlankArray.concat(GenreComplete,PlatformComplete)
+    CleanCombinedArray = onlyDuplicates(CombinedArray);
+    if(CleanCombinedArray.length<=0){
+      document.getElementById("GameStartError").style.display="block"
+    }
+    if(CleanCombinedArray.length>0){
+      sessionStorage.setItem("Suggest",JSON.stringify(CleanCombinedArray));
+      sessionStorage.setItem("Random",JSON.stringify(CleanCombinedArray));
+      document.getElementById("GameSort").style.display="none";
+      document.getElementById("GameStartError").style.display="none";
+      if(sessionStorage.getItem("TotalRounds")>CleanCombinedArray.length){
+        let TotalRounds = CleanCombinedArray.length;
+        sessionStorage.setItem("TotalRounds",TotalRounds);
+      }
+      GameMain();
+    }
+  }
+  if(PlatformComplete.length<=0||GenreComplete.length<=0){
+    CombinedArray=BlankArray.concat(GenreComplete,PlatformComplete)
+    CleanCombinedArray = removeDuplicates(CombinedArray);
+    sessionStorage.setItem("Suggest",JSON.stringify(CleanCombinedArray));
+    sessionStorage.setItem("Random",JSON.stringify(CleanCombinedArray));
+    document.getElementById("GameSort").style.display="none";
+    document.getElementById("GameStartError").style.display="none";
+    if(sessionStorage.getItem("TotalRounds")>CleanCombinedArray.length){
+        let TotalRounds = CleanCombinedArray.length;
+        sessionStorage.setItem("TotalRounds",TotalRounds);
+      }
+    GameMain();
+  }
+}
+function removeDuplicates(data){
+  return data.filter((value, index) => data.indexOf(value) === index);
+}
+function onlyDuplicates(data){
+  return data.filter((value, index) => data.indexOf(value) !== index);
+}
+
+//    GAME END
+if(sessionStorage.getItem("RanGame")==1){
+  let GameLoad = JSON.parse(sessionStorage.getItem("Random"));
+  if(GameLoad.length == 0||sessionStorage.getItem("GamesDone") == sessionStorage.getItem("TotalGamesDoing")){
+    GameEndDisplay();
+  }
+}
+function GameEndDisplay(){
+  document.getElementById("GameSort").style.display="block";
+  document.getElementById("GameEnd").style.display="block";
+  document.getElementById("BeforeFinalScore").style.display="inline-block";
+  document.getElementById("FinalScore").value = sessionStorage.getItem("GameScore");
+  document.getElementById("FinalScore").style.display="inline-block";
+}
+</script>
+  </body>
+</html>
